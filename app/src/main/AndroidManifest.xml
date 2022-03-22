@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Crypto">
         <activity android:name=".SignUp"></activity>
-        <activity android:name=".SignUP" />
-        <activity android:name=".AboutUs" />
+        <activity
+            android:name=".AboutUs"
+            android:parentActivityName=".SelectPath">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SelectPath" />
+        </activity>
         <activity android:name=".SelectPath" />
         <activity
             android:name=".MainActivity"

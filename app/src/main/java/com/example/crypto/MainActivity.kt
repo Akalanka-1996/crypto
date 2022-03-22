@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
             ) {
                 // correct
                 Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
+                var Intent = Intent(this, SelectPath::class.java)
+                startActivity(Intent)
             } else {
                 // incorrect
                 Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
