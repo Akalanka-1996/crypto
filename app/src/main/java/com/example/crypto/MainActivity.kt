@@ -21,23 +21,24 @@ class MainActivity : AppCompatActivity() {
         // admin and admin
 
         btnLogin.setOnClickListener {
-           if (username.text.toString().equals("admin") && password.text.toString().equals("admin")) {
-               // correct
-               Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
-           } else {
-               // incorrect
-               Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
+            if (username.text.toString().equals("admin") && password.text.toString()
+                    .equals("admin")
+            ) {
+                // correct
+                Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
+            } else {
+                // incorrect
+                Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
 
-           }
+            }
         }
 
-        // move to signup screen
+        // go to signup screen
 
         btnSignUP.setOnClickListener {
-            val Intent = Intent(this, SignUP::class.java)
+            var Intent = Intent(this, SignUp::class.java)
             startActivity(Intent)
         }
-
 
 
     }

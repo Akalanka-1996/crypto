@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crypto">
-        <activity android:name=".SignUP"></activity>
+        <activity android:name=".SignUp"></activity>
+        <activity android:name=".SignUP" />
+        <activity android:name=".AboutUs" />
+        <activity android:name=".SelectPath" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
