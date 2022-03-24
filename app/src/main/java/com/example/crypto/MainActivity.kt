@@ -21,18 +21,26 @@ class MainActivity : AppCompatActivity() {
         // admin and admin
 
         btnLogin.setOnClickListener {
-            if (username.text.toString().equals("admin") && password.text.toString()
-                    .equals("admin")
-            ) {
-                // correct
-                Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
-                var Intent = Intent(this, SelectPath::class.java)
-                startActivity(Intent)
-            } else {
-                // incorrect
-                Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
 
+
+            if (username.text.toString().isEmpty() || password.text.toString().isEmpty()) {
+                Toast.makeText(this, "Please fill all the fields!", Toast.LENGTH_SHORT).show()
+            } else {
+                if (username.text.toString().equals("admin") && password.text.toString()
+                        .equals("admin")
+                ) {
+                    // correct
+                    Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
+                    var Intent = Intent(this, SelectPath::class.java)
+                    startActivity(Intent)
+                } else {
+                    // incorrect
+                    Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
+
+                }
             }
+
+
         }
 
         // go to signup screen

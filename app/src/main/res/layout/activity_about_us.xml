@@ -44,8 +44,7 @@
         android:justificationMode="inter_word"
         android:padding="20sp"
         android:text="Free Android encryption app. This app
-includes a universal file encryption feature that allows users to easily encrypt any type of file or text
-It user
+includes a universal file encryption feature that allows users to easily encrypt any type of file or text.
 "
         android:textColor="@color/white"
         android:textSize="20sp" />
