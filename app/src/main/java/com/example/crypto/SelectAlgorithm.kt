@@ -39,11 +39,14 @@ class SelectAlgorithm : AppCompatActivity() {
 
     }
 
+    // toggle button 'text'
+
     private fun selectTextAlgorithm() {
         val btnBlowfish = findViewById<MaterialButton>(R.id.btnblowfish)
         val btnAES = findViewById<MaterialButton>(R.id.btnaes)
         val btnDES = findViewById<MaterialButton>(R.id.btndes)
-        //  blowfish
+
+        //  Blowfish
 
         btnBlowfish.setOnClickListener {
             Toast.makeText(this, "Blowfish algorithm selected", Toast.LENGTH_SHORT).show()
@@ -68,11 +71,14 @@ class SelectAlgorithm : AppCompatActivity() {
         }
     }
 
+    // toggle button 'file'
+
     private fun selectFileAlgorithm() {
         val btnBlowfish = findViewById<MaterialButton>(R.id.btnblowfish)
         val btnAES = findViewById<MaterialButton>(R.id.btnaes)
         val btnDES = findViewById<MaterialButton>(R.id.btndes)
-        //  blowfish
+
+        //  Blowfish
 
         btnBlowfish.setOnClickListener {
             Toast.makeText(this, "Blowfish algorithm selected", Toast.LENGTH_SHORT).show()
