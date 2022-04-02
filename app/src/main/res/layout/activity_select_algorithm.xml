@@ -15,11 +15,12 @@
         android:padding="-1000dp"
         android:src="@drawable/logo" />
 
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
+        android:layout_below="@id/toggleButtonGroup"
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="Select you algorithm:"
@@ -37,6 +38,7 @@
         android:width="400dp"
         android:height="50dp"
         android:backgroundTint="@color/white"
+        android:gravity="center"
         android:text="Blowfish"
         android:textColor="@color/black" />
 
@@ -65,6 +67,35 @@
         android:backgroundTint="@color/white"
         android:text="DES"
         android:textColor="@color/black" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButtonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/btntext"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text" />
+
+        <Button
+            android:id="@+id/btnfile"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="File" />
+
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
 
 </RelativeLayout>
