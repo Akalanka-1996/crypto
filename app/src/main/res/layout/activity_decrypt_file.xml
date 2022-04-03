@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
-    tools:context=".EncryptFile">
+    tools:context=".DecryptFile">
 
     <TextView
         android:id="@+id/selectfile"
@@ -19,11 +19,20 @@
         android:textStyle="bold" />
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/selectfile"
+        android:layout_centerHorizontal="true"
+        android:padding="-1000dp"
+        android:src="@drawable/logo" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnbrowse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/selectfile"
+        android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Browse"
@@ -31,7 +40,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btndnrypt"
+        android:id="@+id/btnderypt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnbrowse"
@@ -39,6 +48,5 @@
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Decrypt"
         android:textColor="@color/black" />
-
 
 </RelativeLayout>

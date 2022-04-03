@@ -19,15 +19,19 @@ class SelectPath : AppCompatActivity() {
         // go to encryption
 
         btnEncryption.setOnClickListener {
-            var Intent = Intent(this, SelectAlgorithm::class.java)
-            startActivity(Intent)
+            var intent = Intent(this, SelectAlgorithm::class.java)
+            val type = String()
+            intent.putExtra("type","encrypt")
+            startActivity(intent)
         }
 
         // go to decryption
 
         btnDecryption.setOnClickListener {
-            var Intent = Intent(this, SelectAlgorithm::class.java)
-            startActivity(Intent)
+            var intent = Intent(this, SelectAlgorithm::class.java)
+            val type = String()
+            intent.putExtra("type", "decrypt")
+            startActivity(intent)
         }
         // logout
 

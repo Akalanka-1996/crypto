@@ -14,6 +14,7 @@ class SelectAlgorithm : AppCompatActivity() {
         setContentView(R.layout.activity_select_algorithm)
 
         val toggleButtonGroup = findViewById<MaterialButtonToggleGroup>(R.id.toggleButtonGroup)
+        val intentValue = intent.getStringExtra("type")
 
 
         toggleButtonGroup.addOnButtonCheckedListener { toggleButtonGroup, checkedId, isChecked ->
@@ -46,28 +47,52 @@ class SelectAlgorithm : AppCompatActivity() {
         val btnAES = findViewById<MaterialButton>(R.id.btnaes)
         val btnDES = findViewById<MaterialButton>(R.id.btndes)
 
+
         //  Blowfish
 
         btnBlowfish.setOnClickListener {
             Toast.makeText(this, "Blowfish algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, EncryptText::class.java)
-            startActivity(Intent)
+            val type = intent.getStringExtra("type")
+            if (type.equals("encrypt")) {
+                var Intent = Intent(this, EncryptText::class.java)
+                startActivity(Intent)
+            }
+            if (type.equals("decrypt")) {
+                var Intent = Intent(this, DecryptText::class.java)
+                startActivity(Intent)
+            }
+
+
         }
 
         // AES
 
         btnAES.setOnClickListener {
             Toast.makeText(this, "AES algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, EncryptText::class.java)
-            startActivity(Intent)
+            val type = intent.getStringExtra("type")
+            if (type.equals("encrypt")) {
+                var Intent = Intent(this, EncryptText::class.java)
+                startActivity(Intent)
+            }
+            if (type.equals("decrypt")) {
+                var Intent = Intent(this, DecryptText::class.java)
+                startActivity(Intent)
+            }
         }
 
         // DES
 
         btnDES.setOnClickListener {
             Toast.makeText(this, "DES algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, EncryptText::class.java)
-            startActivity(Intent)
+            val type = intent.getStringExtra("type")
+            if (type.equals("encrypt")) {
+                var Intent = Intent(this, EncryptText::class.java)
+                startActivity(Intent)
+            }
+            if (type.equals("decrypt")) {
+                var Intent = Intent(this, DecryptText::class.java)
+                startActivity(Intent)
+            }
         }
     }
 
@@ -82,28 +107,51 @@ class SelectAlgorithm : AppCompatActivity() {
 
         btnBlowfish.setOnClickListener {
             Toast.makeText(this, "Blowfish algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, EncryptFile::class.java)
-            startActivity(Intent)
+            val type = intent.getStringExtra("type")
+            if (type.equals("encrypt")) {
+                var Intent = Intent(this, EncryptFile::class.java)
+                startActivity(Intent)
+            }
+            if (type.equals("decrypt")) {
+                var Intent = Intent(this, DecryptFile::class.java)
+                startActivity(Intent)
+            }
         }
 
         // AES
 
         btnAES.setOnClickListener {
             Toast.makeText(this, "AES algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, EncryptFile::class.java)
-            startActivity(Intent)
+            val type = intent.getStringExtra("type")
+            if (type.equals("encrypt")) {
+                var Intent = Intent(this, EncryptFile::class.java)
+                startActivity(Intent)
+            }
+            if (type.equals("decrypt")) {
+                var Intent = Intent(this, DecryptFile::class.java)
+                startActivity(Intent)
+            }
         }
 
         // DES
 
         btnDES.setOnClickListener {
             Toast.makeText(this, "DES algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, EncryptFile::class.java)
-            startActivity(Intent)
+            val type = intent.getStringExtra("type")
+            if (type.equals("encrypt")) {
+                var Intent = Intent(this, EncryptFile::class.java)
+                startActivity(Intent)
+            }
+            if (type.equals("decrypt")) {
+                var Intent = Intent(this, DecryptFile::class.java)
+                startActivity(Intent)
+            }
         }
     }
 
     private fun showToast(str: String) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
+
+
 }
