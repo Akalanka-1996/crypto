@@ -82,7 +82,7 @@ class SelectAlgorithm : AppCompatActivity() {
 
         btnBlowfish.setOnClickListener {
             Toast.makeText(this, "Blowfish algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, SelectFile::class.java)
+            var Intent = Intent(this, EncryptFile::class.java)
             startActivity(Intent)
         }
 
@@ -90,7 +90,7 @@ class SelectAlgorithm : AppCompatActivity() {
 
         btnAES.setOnClickListener {
             Toast.makeText(this, "AES algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, SelectFile::class.java)
+            var Intent = Intent(this, EncryptFile::class.java)
             startActivity(Intent)
         }
 
@@ -98,7 +98,7 @@ class SelectAlgorithm : AppCompatActivity() {
 
         btnDES.setOnClickListener {
             Toast.makeText(this, "DES algorithm selected", Toast.LENGTH_SHORT).show()
-            var Intent = Intent(this, SelectFile::class.java)
+            var Intent = Intent(this, EncryptFile::class.java)
             startActivity(Intent)
         }
     }

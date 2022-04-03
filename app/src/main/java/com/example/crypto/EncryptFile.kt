@@ -4,11 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
 import com.google.android.material.button.MaterialButton
 
-class SelectFile : AppCompatActivity() {
+class EncryptFile : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
 
@@ -18,7 +16,7 @@ class SelectFile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_select_file)
+        setContentView(R.layout.activity_encyprt_file)
 
         val btnSelectFile = findViewById<MaterialButton>(R.id.btnbrowse)
         val btnEncrypt = findViewById<MaterialButton>(R.id.btnencryption)
