@@ -7,6 +7,7 @@
     android:background="@drawable/wallpaper"
     tools:context=".EncryptText">
 
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="200dp"
@@ -75,6 +76,19 @@
         android:backgroundTint="@color/white"
         android:text="Encrypt"
         android:textColor="@color/black" />
+
+
+    <TextView
+        android:id="@+id/txtOuptput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnEncrypt"
+        android:layout_margin="10dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

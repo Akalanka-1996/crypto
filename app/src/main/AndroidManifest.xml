@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Crypto">
-        <activity android:name=".DecryptFile"></activity>
+        <activity android:name=".EncryptText"></activity>
+        <activity android:name=".DecryptFile" />
         <activity android:name=".DecryptText" />
-        <activity android:name=".EncryptText" />
         <activity android:name=".EncryptFile" />
         <activity android:name=".SelectAlgorithm" />
         <activity android:name=".SignUp" />
