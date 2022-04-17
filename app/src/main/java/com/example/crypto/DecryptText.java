@@ -2,6 +2,9 @@ package com.example.crypto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -31,6 +34,7 @@ public class DecryptText extends AppCompatActivity {
         setContentView(R.layout.activity_decrypt_text);
 
         inputText = (EditText) findViewById(R.id.txtPlain);
+        inputPassword = (EditText) findViewById(R.id.txtKey);
         outputText = (TextView) findViewById(R.id.txtOuptput);
 
         decryptBtn = (MaterialButton) findViewById(R.id.btnDecrypt);
@@ -46,6 +50,18 @@ public class DecryptText extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 outputText.setText(outputString);
+            }
+        });
+
+        copyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("EncryptedText", outputText.getText().toString());
+                clipboard.setPrimaryClip(clip);
+
+                Toast.makeText(DecryptText.this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+
             }
         });
 
