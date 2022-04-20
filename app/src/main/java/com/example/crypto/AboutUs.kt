@@ -11,14 +11,14 @@ class AboutUs : AppCompatActivity() {
 
         setContentView(R.layout.activity_about_us)
 
-        val btnBack = findViewById<MaterialButton>(R.id.btnback)
-
-        // go back
-
-        btnBack.setOnClickListener {
-            var Intent = Intent(this, SelectPath::class.java)
-            startActivity(Intent)
-        }
+//        val btnBack = findViewById<MaterialButton>(R.id.btnback)
+//
+//        // go back
+//
+//        btnBack.setOnClickListener {
+//            var Intent = Intent(this, SelectPath::class.java)
+//            startActivity(Intent)
+//        }
 
 
     }

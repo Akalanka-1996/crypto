@@ -24,9 +24,10 @@
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="Select you algorithm:"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        android:textColor="#1e1f21"
+        android:textSize="20dp"
+
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnblowfish"
@@ -34,13 +35,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:width="400dp"
-        android:height="50dp"
+        android:layout_margin="10dp"
+        android:width="250dp"
+        android:height="65dp"
         android:backgroundTint="@color/white"
         android:gravity="center"
         android:text="Blowfish"
-        android:textColor="@color/black" />
+        app:cornerRadius="8dp"
+        android:textColor="#8b8c8f" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnaes"
@@ -48,12 +50,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnblowfish"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:width="400dp"
-        android:height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:width="250dp"
+        android:height="65dp"
         android:backgroundTint="@color/white"
         android:text="AES"
-        android:textColor="@color/black" />
+        android:textColor="#8b8c8f"
+        app:cornerRadius="8dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btndes"
@@ -61,12 +65,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnaes"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:width="400dp"
-        android:height="50dp"
+        android:layout_margin="10dp"
+        android:width="250dp"
+        android:height="65dp"
+        app:cornerRadius="8dp"
         android:backgroundTint="@color/white"
         android:text="DES"
-        android:textColor="@color/black" />
+        android:textColor="#8b8c8f" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButtonGroup"
@@ -78,6 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/cardview_dark_background"
         app:singleSelection="true">
 
         <Button

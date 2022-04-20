@@ -109,11 +109,11 @@ class SelectAlgorithm : AppCompatActivity() {
             Toast.makeText(this, "Blowfish algorithm selected", Toast.LENGTH_SHORT).show()
             val type = intent.getStringExtra("type")
             if (type.equals("encrypt")) {
-                var Intent = Intent(this, EncryptFile::class.java)
+                var Intent = Intent(this, EncryptFiles2::class.java)
                 startActivity(Intent)
             }
             if (type.equals("decrypt")) {
-                var Intent = Intent(this, DecryptFile::class.java)
+                var Intent = Intent(this, EncryptFiles2::class.java)
                 startActivity(Intent)
             }
         }
@@ -124,11 +124,11 @@ class SelectAlgorithm : AppCompatActivity() {
             Toast.makeText(this, "AES algorithm selected", Toast.LENGTH_SHORT).show()
             val type = intent.getStringExtra("type")
             if (type.equals("encrypt")) {
-                var Intent = Intent(this, EncryptFile::class.java)
+                var Intent = Intent(this, EncryptFiles2::class.java)
                 startActivity(Intent)
             }
             if (type.equals("decrypt")) {
-                var Intent = Intent(this, DecryptFile::class.java)
+                var Intent = Intent(this, EncryptFiles2::class.java)
                 startActivity(Intent)
             }
         }
@@ -139,11 +139,11 @@ class SelectAlgorithm : AppCompatActivity() {
             Toast.makeText(this, "DES algorithm selected", Toast.LENGTH_SHORT).show()
             val type = intent.getStringExtra("type")
             if (type.equals("encrypt")) {
-                var Intent = Intent(this, EncryptFile::class.java)
+                var Intent = Intent(this, EncryptFiles2::class.java)
                 startActivity(Intent)
             }
             if (type.equals("decrypt")) {
-                var Intent = Intent(this, DecryptFile::class.java)
+                var Intent = Intent(this, EncryptFiles2::class.java)
                 startActivity(Intent)
             }
         }
