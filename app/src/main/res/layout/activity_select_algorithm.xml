@@ -7,12 +7,15 @@
     android:background="@drawable/wallpaper"
     tools:context=".SelectAlgorithm">
 
+
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:padding="-1000dp"
+        android:layout_width="395dp"
+        android:layout_height="655dp"
+        android:layout_marginTop="-170dp"
+        android:layout_marginBottom="-200dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:src="@drawable/logo" />
 
 

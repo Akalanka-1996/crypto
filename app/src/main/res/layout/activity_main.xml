@@ -10,16 +10,13 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:padding="10dp"
-        android:layout_width="300dp"
-        android:layout_marginLeft="50dp"
-        android:paddingTop="100dp"
-        android:paddingRight="100dp"
-        android:paddingBottom="100dp"
-        android:paddingLeft="100dp"
-        android:layout_height="200dp"
+        android:layout_width="395dp"
+        android:layout_height="655dp"
+        android:layout_marginTop="-145dp"
+        android:layout_marginBottom="-200dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:src="@drawable/logo" />
-
 
 
     <EditText
@@ -28,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:layout_margin="10dp"
+        android:layout_marginTop="-100dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="20dp"
@@ -57,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:width="400dp"
         android:height="50dp"
         app:cornerRadius="8dp"
@@ -69,25 +67,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnlogin"
-        android:layout_margin="5dp"
+        android:layout_margin="0dp"
         android:gravity="center"
         android:text="OR"
+        android:layout_marginTop="90dp"
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:textStyle="bold" />
-
+       />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnsignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/or"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="-15dp"
         android:width="400dp"
         android:height="50dp"
         app:cornerRadius="8dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="SIGN UP" />
+
 
 
 </RelativeLayout>
