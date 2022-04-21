@@ -6,12 +6,51 @@
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
     tools:context=".EncryptFiles2">
-    
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-140dp"
+        android:layout_marginBottom="-210dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo" />
+
     <ImageView
         android:id="@+id/imageView"
+        android:layout_below="@id/logo"
+        android:layout_width="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:id="@+id/stext"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_margin="0dp"
+        android:gravity="center"
+        android:text="Select Files"
+        android:layout_marginTop="90dp"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnbrowse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stext"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_marginTop="-15dp"
+        android:width="200dp"
+        android:height="50dp"
+        android:onClick="openFileDialog"
+        app:cornerRadius="8dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:text="Browse" />
+
     <LinearLayout
         android:id="@+id/layout_group"
         android:orientation="horizontal"
@@ -26,7 +65,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/cardview_dark_background"
-            android:text="encrypt" />
+            android:text="encrypt"
+            android:textColor="@color/white"
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_decrypt"
@@ -35,7 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/cardview_dark_background"
-            android:text="Decrypt" />
+            android:text="Decrypt"
+            android:textColor="@color/white"
+            />
 
 
     </LinearLayout>

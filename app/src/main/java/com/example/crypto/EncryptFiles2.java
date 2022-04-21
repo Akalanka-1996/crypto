@@ -1,9 +1,16 @@
 package com.example.crypto;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -42,7 +49,7 @@ public class EncryptFiles2 extends AppCompatActivity {
 
     private static final String FILE_NAME_ENC = "download";
     private static final String FILE_NAME_DEC = "download.png";
-    Button btn_enc, btn_dec;
+    Button btn_enc, btn_dec, btn_browse;
     ImageView imageView;
     File myDir;
 
@@ -54,11 +61,14 @@ public class EncryptFiles2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encrypt_files2);
 
+
         btn_dec = (MaterialButton) findViewById(R.id.btn_decrypt);
         btn_enc = (MaterialButton) findViewById(R.id.btn_encrypt);
+        btn_browse = (MaterialButton) findViewById(R.id.btnbrowse);
         imageView = (ImageView) findViewById(R.id.imageView);
 
-        myDir = new File(Environment.getExternalStorageDirectory().toString()+"/saved_images");
+        myDir = new File(Environment.getExternalStorageDirectory().toString() + "/saved_images");
+
 
         Dexter.withActivity(this)
                 .withPermissions(new String[]{
@@ -82,7 +92,7 @@ public class EncryptFiles2 extends AppCompatActivity {
         btn_dec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                File outputFileDec = new File(myDir,FILE_NAME_DEC);
+                File outputFileDec = new File(myDir, FILE_NAME_DEC);
                 File encFile = new File(myDir, FILE_NAME_ENC);
                 try {
                     Encrypter.decryptToFile(my_key, my_spec_key, new FileInputStream(encFile), new FileOutputStream(outputFileDec));
@@ -136,5 +146,27 @@ public class EncryptFiles2 extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        Uri uri = data.getData();
+                    }
+                }
+            }
+    );
+
+    public void openFileDialog(View view) {
+        Intent data = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        data.setType("*/*");
+        data = Intent.createChooser(data, "Choose a file");
+        activityResultLauncher.launch(data);
+
     }
 }
