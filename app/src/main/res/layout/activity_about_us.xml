@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
-        android:layout_margin="10dp"
+        android:layout_margin="30dp"
         android:gravity="center"
         android:text="About Us"
         android:textColor="@color/black"
@@ -42,7 +42,7 @@
 includes a universal file encryption feature that allows users to easily encrypt any type of file or text.
 "
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/text2"
@@ -51,10 +51,10 @@ includes a universal file encryption feature that allows users to easily encrypt
         android:layout_below="@+id/text1"
         android:layout_centerHorizontal="true"
         android:justificationMode="inter_word"
-        android:padding="20sp"
+        android:padding="15sp"
         android:text="It uses the AES, DES and Blowfish algorithms to encrypt files. This app also allows you to encrypt text imported keys as the password. Check out the methods below to use this Android file encryption tool to encrypt files and data"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/developedBy"

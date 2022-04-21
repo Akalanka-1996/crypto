@@ -70,7 +70,7 @@
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/white"
-        android:text="SignUp"
+        android:text="Sign Up"
         android:textColor="@color/black" />
 
 </RelativeLayout>
