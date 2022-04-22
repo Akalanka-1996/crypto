@@ -73,5 +73,14 @@
         android:backgroundTint="#b3b7bd"
         android:text="About" />
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_contact_support_24"
+        android:layout_marginLeft="323dp"
+        android:layout_marginTop="10dp"
+        />
+
 
 </RelativeLayout>

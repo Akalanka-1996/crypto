@@ -318,7 +318,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/opt/android-studio-4.2/android-studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/content_copy/baseline_content_copy_24.xml" />
+                                      <entry key="url" value="jar:file:/opt/android-studio-4.2/android-studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/contact_support/baseline_contact_support_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -329,7 +329,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_content_copy_24" />
+                            <entry key="outputName" value="ic_baseline_contact_support_24" />
                           </map>
                         </option>
                       </PersistentState>

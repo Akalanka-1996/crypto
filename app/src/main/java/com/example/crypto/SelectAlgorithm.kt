@@ -55,10 +55,12 @@ class SelectAlgorithm : AppCompatActivity() {
             val type = intent.getStringExtra("type")
             if (type.equals("encrypt")) {
                 var Intent = Intent(this, EncryptText::class.java)
+                Intent.putExtra("type", "Blowfish")
                 startActivity(Intent)
             }
             if (type.equals("decrypt")) {
                 var Intent = Intent(this, DecryptText::class.java)
+                Intent.putExtra("type", "Blowfish")
                 startActivity(Intent)
             }
 
@@ -72,10 +74,12 @@ class SelectAlgorithm : AppCompatActivity() {
             val type = intent.getStringExtra("type")
             if (type.equals("encrypt")) {
                 var Intent = Intent(this, EncryptText::class.java)
+                Intent.putExtra("type", "AES")
                 startActivity(Intent)
             }
             if (type.equals("decrypt")) {
                 var Intent = Intent(this, DecryptText::class.java)
+                Intent.putExtra("type", "AES")
                 startActivity(Intent)
             }
         }
@@ -87,10 +91,13 @@ class SelectAlgorithm : AppCompatActivity() {
             val type = intent.getStringExtra("type")
             if (type.equals("encrypt")) {
                 var Intent = Intent(this, EncryptText::class.java)
+                Intent.putExtra("type", "DES")
+
                 startActivity(Intent)
             }
             if (type.equals("decrypt")) {
                 var Intent = Intent(this, DecryptText::class.java)
+                Intent.putExtra("type", "DES")
                 startActivity(Intent)
             }
         }

@@ -7,18 +7,25 @@ import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.security.crypto.EncryptedFile;
+import androidx.security.crypto.MasterKeys;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -38,6 +45,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -51,7 +59,9 @@ public class EncryptFiles2 extends AppCompatActivity {
     private static final String FILE_NAME_DEC = "download.png";
     Button btn_enc, btn_dec, btn_browse;
     ImageView imageView;
+    EditText filePath;
     File myDir;
+    File newFile;
 
     String my_key = "mDxGC8Q4EDDGdcOV";
     String my_spec_key = "clq0LefoQvApP5M2";
@@ -65,7 +75,7 @@ public class EncryptFiles2 extends AppCompatActivity {
         btn_dec = (MaterialButton) findViewById(R.id.btn_decrypt);
         btn_enc = (MaterialButton) findViewById(R.id.btn_encrypt);
         btn_browse = (MaterialButton) findViewById(R.id.btnbrowse);
-        imageView = (ImageView) findViewById(R.id.imageView);
+        filePath = (EditText) findViewById(R.id.txtFilePath);
 
         myDir = new File(Environment.getExternalStorageDirectory().toString() + "/saved_images");
 
@@ -121,26 +131,39 @@ public class EncryptFiles2 extends AppCompatActivity {
         btn_enc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Drawable drawable = ContextCompat.getDrawable(EncryptFiles2.this, R.drawable.download);
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-                Bitmap bitmap = bitmapDrawable.getBitmap();
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                InputStream is = new ByteArrayInputStream(stream.toByteArray());
 
-                File outputFileEnc = new File(myDir, FILE_NAME_ENC);
+                Context context = EncryptFiles2.this;
+
+
+                EncryptedFile encryptedFile = null;
                 try {
-                    Encrypter.encryptToFile(my_key, my_spec_key, is, new FileOutputStream(outputFileEnc));
-                    Toast.makeText(EncryptFiles2.this, "Encrypted!", Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
+                    encryptedFile = new EncryptedFile.Builder(
+                            newFile,
+                            context,
+                            my_spec_key,
+                            EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
+                    ).build();
+//                    Toast.makeText(EncryptFiles2.this, newFile.getPath() , Toast.LENGTH_SHORT).show();
+                    System.out.println(newFile.getPath());
+
+//                    Toast.makeText(EncryptFiles2.this, encryptedFile.toString() , Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
                     e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
+                }
+
+                // write to the encrypted file
+                try {
+                    FileOutputStream encryptedOutputStream = encryptedFile.openFileOutput();
+                    Toast.makeText(EncryptFiles2.this, "two", Toast.LENGTH_SHORT).show();
+                }  catch (Exception e) {
                     e.printStackTrace();
-                } catch (InvalidKeyException e) {
-                    e.printStackTrace();
-                } catch (InvalidAlgorithmParameterException e) {
-                    e.printStackTrace();
-                } catch (NoSuchPaddingException e) {
+                }
+
+                // read the encrypted file
+                try {
+                    FileInputStream encryptedInputStream = encryptedFile.openFileInput();
+                    Toast.makeText(EncryptFiles2.this, "three", Toast.LENGTH_SHORT).show();
+                }  catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -148,6 +171,7 @@ public class EncryptFiles2 extends AppCompatActivity {
         });
     }
 
+    // file picker
 
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -157,6 +181,10 @@ public class EncryptFiles2 extends AppCompatActivity {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
                         Uri uri = data.getData();
+                        newFile = new File(uri.getPath());
+//                        Toast.makeText(this, filePath, Toast.LENGTH_LONG).show();
+                        Toast.makeText(EncryptFiles2.this, newFile.getPath(), Toast.LENGTH_LONG).show();
+                        filePath.setText(getFileName(uri, getApplicationContext()));
                     }
                 }
             }
@@ -169,4 +197,44 @@ public class EncryptFiles2 extends AppCompatActivity {
         activityResultLauncher.launch(data);
 
     }
+
+    String getFileName(Uri uri, Context context) {
+        String res = null;
+        if(uri.getScheme().equals("content")){
+            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+            try {
+                if(cursor != null && cursor.moveToFirst()) {
+                    res = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                }
+            } finally {
+                cursor.close();
+            }
+            if (res == null) {
+                res = uri.getPath();
+                int cutt = res.lastIndexOf('/');
+                if(cutt != -1) {
+                    res = res.substring(cutt +1);
+                }
+            }
+        }
+
+        return res;
+    }
+
+
+//    private String getRealPathFromURI(Uri contentURI) {
+//        String result;
+//        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
+//        if (cursor == null) { // Source is Dropbox or other similar local file path
+//            result = contentURI.getPath();
+//        } else {
+//            cursor.moveToFirst();
+//            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+//            result = cursor.getString(idx);
+//            cursor.close();
+//        }
+//        return result;
+//    }
+
 }

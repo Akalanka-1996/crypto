@@ -3,6 +3,7 @@ package com.example.crypto
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 
@@ -15,6 +16,7 @@ class SelectPath : AppCompatActivity() {
         val btnDecryption = findViewById<MaterialButton>(R.id.btndecryption)
         val btnLogout = findViewById<MaterialButton>(R.id.btnLogout)
         val btnAboutUs = findViewById<MaterialButton>(R.id.btnabout)
+        val btnContact = findViewById<ImageButton>(R.id.imageButton)
 
         // go to encryption
 
@@ -46,6 +48,13 @@ class SelectPath : AppCompatActivity() {
             var Intent = Intent(this, AboutUs::class.java)
             startActivity(Intent)
         }
+
+        // contact us
+        btnContact.setOnClickListener {
+            var Intent = Intent(this, ContactUs::class.java)
+            startActivity(Intent)
+        }
+
 
 
     }
