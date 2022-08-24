@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
+    tools:context=".EncryptText">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:padding="-1000dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/ptext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="PlainText :"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/txtPlain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ptext"
+        android:layout_margin="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <TextView
+        android:id="@+id/key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtPlain"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Key :"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/txtKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/key"
+        android:layout_margin="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEncrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtKey"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:width="200dp"
+        android:height="75dp"
+        android:backgroundTint="@color/white"
+        android:text="Encrypt"
+        android:textColor="@color/black"
+        app:cornerRadius="8dp" />
+
+    <TextView
+        android:id="@+id/dtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout_group"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="Encrypted Text:"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/txtOuptput"
+            android:layout_width="480dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.5"
+            android:background="#5e615f"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCopy"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/cardview_dark_background"
+            android:text="copy"
+            android:textColor="#a2a8a3"
+            android:textSize="10dp"
+            app:icon="@drawable/ic_baseline_content_copy_24" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
