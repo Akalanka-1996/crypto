@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.crypto">
+    package="com.febrian.qrbarcodescanner">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Crypto">
-        <activity android:name=".ContactUs"></activity>
-        <activity android:name=".EncryptFiles2" />
-        <activity android:name=".DecryptText" />
-        <activity android:name=".EncryptText" />
-        <activity android:name=".EncryptFile" />
-        <activity android:name=".SelectAlgorithm" />
-        <activity android:name=".SignUp" />
+        android:theme="@style/Theme.QRBarCodeScanner">
+        <meta-data
+            android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+            android:value="ocr" />
         <activity
-            android:name=".AboutUs"
-            android:parentActivityName=".SelectPath">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SelectPath" />
-        </activity>
-        <activity android:name=".SelectPath" />
+            android:name=".TextDetect"
+            android:exported="false" />
+        <activity
+            android:name=".ScanActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

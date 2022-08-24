@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Crypto.iml" filepath="$PROJECT_DIR$/.idea/modules/Crypto.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Crypto.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Crypto.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Crypto.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Crypto.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Crypto.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Crypto.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Crypto.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Crypto.app.unitTest.iml" />
     </modules>
   </component>
 </project>
